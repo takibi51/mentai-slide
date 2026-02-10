@@ -154,7 +154,7 @@
         }
 
         // grid
-        ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+        ctx.strokeStyle = 'rgba(74,124,255,0.12)';
         ctx.lineWidth = 1;
         for (var level = 1; level <= 5; level++) {
             var lr = (r * level) / 5;
@@ -171,7 +171,7 @@
         }
 
         // axes
-        ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+        ctx.strokeStyle = 'rgba(74,124,255,0.08)';
         for (var i = 0; i < n; i++) {
             var a = angleFor(i);
             ctx.beginPath();
@@ -182,8 +182,8 @@
 
         // filled area
         var grd = ctx.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
-        grd.addColorStop(0, 'rgba(108,92,231,0.35)');
-        grd.addColorStop(1, 'rgba(0,206,201,0.25)');
+        grd.addColorStop(0, 'rgba(74,124,255,0.25)');
+        grd.addColorStop(1, 'rgba(46,196,182,0.2)');
         ctx.fillStyle = grd;
         ctx.beginPath();
         for (var i = 0; i < n; i++) {
@@ -198,7 +198,7 @@
         ctx.fill();
 
         // outline
-        ctx.strokeStyle = 'rgba(108,92,231,0.7)';
+        ctx.strokeStyle = 'rgba(74,124,255,0.7)';
         ctx.lineWidth = 2;
         ctx.beginPath();
         for (var i = 0; i <= n; i++) {
@@ -221,15 +221,15 @@
             var py = cy + vr * Math.sin(a);
             ctx.beginPath();
             ctx.arc(px, py, 4, 0, Math.PI * 2);
-            ctx.fillStyle = '#a29bfe';
+            ctx.fillStyle = '#4A7CFF';
             ctx.fill();
             ctx.strokeStyle = '#fff';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
         }
 
         // labels
-        ctx.fillStyle = 'rgba(240,240,245,0.7)';
+        ctx.fillStyle = 'rgba(26,42,74,0.65)';
         ctx.font = '12px "Noto Sans JP", sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -265,7 +265,7 @@
         }
 
         // grid
-        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.strokeStyle = 'rgba(74,124,255,0.12)';
         ctx.lineWidth = 0.5;
         for (var level = 1; level <= 4; level++) {
             var lr = (r * level) / 4;
@@ -283,8 +283,8 @@
 
         // filled area
         var grd = ctx.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
-        grd.addColorStop(0, 'rgba(0,206,201,0.3)');
-        grd.addColorStop(1, 'rgba(108,92,231,0.25)');
+        grd.addColorStop(0, 'rgba(46,196,182,0.25)');
+        grd.addColorStop(1, 'rgba(74,124,255,0.2)');
         ctx.fillStyle = grd;
         ctx.beginPath();
         for (var i = 0; i < n; i++) {
@@ -296,7 +296,7 @@
         ctx.closePath();
         ctx.fill();
 
-        ctx.strokeStyle = 'rgba(0,206,201,0.6)';
+        ctx.strokeStyle = 'rgba(46,196,182,0.7)';
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         for (var i = 0; i <= n; i++) {
@@ -310,7 +310,7 @@
         ctx.stroke();
 
         // labels
-        ctx.fillStyle = 'rgba(240,240,245,0.6)';
+        ctx.fillStyle = 'rgba(26,42,74,0.55)';
         ctx.font = '9px "Noto Sans JP", sans-serif';
         ctx.textAlign = 'center';
         for (var i = 0; i < n; i++) {
