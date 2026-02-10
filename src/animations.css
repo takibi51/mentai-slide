@@ -1,0 +1,142 @@
+/* =====================================================
+   MENTAI ToB LP - Refined Animations (Arc-style)
+   Subtle, Elegant Motion
+   ===================================================== */
+
+/* =====================================================
+   SCROLL ANIMATIONS (Subtle)
+   ===================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.fade-in-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.fade-in-delay-3 {
+    transition-delay: 0.3s;
+}
+
+.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.stagger-2 {
+    transition-delay: 0.2s;
+}
+
+.stagger-3 {
+    transition-delay: 0.3s;
+}
+
+/* =====================================================
+   BUTTON HOVER (Subtle lift)
+   ===================================================== */
+
+.btn {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* =====================================================
+   FLOATING MASCOT (Gentle)
+   ===================================================== */
+
+@keyframes float-gentle {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float {
+    animation: float-gentle 5s ease-in-out infinite;
+}
+
+/* =====================================================
+   CARD HOVER (Subtle lift with shadow)
+   ===================================================== */
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* =====================================================
+   HERO TEXT FADE IN
+   ===================================================== */
+
+.hero-tagline {
+    animation: hero-fade 0.8s ease-out 0.1s both;
+}
+
+.hero-sub {
+    animation: hero-fade 0.8s ease-out 0.3s both;
+}
+
+.hero-cta {
+    animation: hero-fade 0.8s ease-out 0.5s both;
+}
+
+.hero-notes {
+    animation: hero-fade 0.8s ease-out 0.7s both;
+}
+
+.hero-mascot {
+    animation: hero-fade 0.8s ease-out 0.4s both;
+}
+
+@keyframes hero-fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   REDUCE MOTION (Accessibility)
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
