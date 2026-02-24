@@ -306,6 +306,7 @@ body {
     justify-content: center;
     width: 100%;
     max-width: 1200px;
+    padding-right: 440px;
     gap: 24px;
 }
 
@@ -329,9 +330,9 @@ body {
 }
 
 .cover-title {
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: clamp(32px, 4vw, 56px);
     font-weight: 900;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.03em;
     color: var(--c-text);
 }
@@ -357,10 +358,11 @@ body {
     position: absolute;
     right: 60px;
     top: 50%;
-    transform: translateY(-50%);
-    width: 380px;
-    height: 380px;
-    border-radius: 30px;
+    transform: translateY(-45%);
+    width: 420px;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(100, 140, 200, 0.15);
     box-shadow: 0 30px 60px rgba(74, 124, 255, 0.1), 0 0 40px rgba(74, 124, 255, 0.06);
