@@ -387,6 +387,7 @@ body {
 .split-visual {
     flex: 0 0 55%;
     position: relative;
+    overflow: visible;
 }
 
 .split-visual--40 {
@@ -694,9 +695,10 @@ body {
 
 /* ---------- Radar Chart ---------- */
 .radar-container {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     position: relative;
+    overflow: visible;
 }
 
 .radar-container svg {
@@ -1069,7 +1071,7 @@ body {
 .eval-axes {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
 }
 
 .eval-axis {

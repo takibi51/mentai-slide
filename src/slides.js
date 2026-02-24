@@ -133,21 +133,26 @@
 
     /* ---------- Radar Chart (canvas) for evaluation slide ---------- */
     var radarCanvas = document.getElementById('radar-chart');
+
     if (radarCanvas) {
-        drawRadarChart(radarCanvas);
+        radarCanvas.width = 500;
+        radarCanvas.height = 400;
     }
 
-    function drawRadarChart(canvas) {
+    function drawRadarChart(canvas, progress) {
         var ctx = canvas.getContext('2d');
         var w = canvas.width;
         var h = canvas.height;
         var cx = w / 2;
         var cy = h / 2;
-        var r = Math.min(w, h) / 2 - 30;
+        var r = Math.min(w, h) / 2 - 80;
 
         var labels = ['問題解決力', '多面的思考', '読み取る力', '説得力', 'プレッシャー耐性'];
         var values = [0.85, 0.78, 0.72, 0.80, 0.90];
         var n = labels.length;
+        var p = (progress !== undefined) ? progress : 1;
+
+        ctx.clearRect(0, 0, w, h);
 
         function angleFor(i) {
             return (Math.PI * 2 * i) / n - Math.PI / 2;
@@ -161,10 +166,8 @@
             ctx.beginPath();
             for (var i = 0; i <= n; i++) {
                 var a = angleFor(i % n);
-                var px = cx + lr * Math.cos(a);
-                var py = cy + lr * Math.sin(a);
-                if (i === 0) ctx.moveTo(px, py);
-                else ctx.lineTo(px, py);
+                if (i === 0) ctx.moveTo(cx + lr * Math.cos(a), cy + lr * Math.sin(a));
+                else ctx.lineTo(cx + lr * Math.cos(a), cy + lr * Math.sin(a));
             }
             ctx.closePath();
             ctx.stroke();
@@ -185,14 +188,13 @@
         grd.addColorStop(0, 'rgba(74,124,255,0.25)');
         grd.addColorStop(1, 'rgba(46,196,182,0.2)');
         ctx.fillStyle = grd;
+        ctx.globalAlpha = p;
         ctx.beginPath();
         for (var i = 0; i < n; i++) {
             var a = angleFor(i);
-            var vr = r * values[i];
-            var px = cx + vr * Math.cos(a);
-            var py = cy + vr * Math.sin(a);
-            if (i === 0) ctx.moveTo(px, py);
-            else ctx.lineTo(px, py);
+            var vr = r * values[i] * p;
+            if (i === 0) ctx.moveTo(cx + vr * Math.cos(a), cy + vr * Math.sin(a));
+            else ctx.lineTo(cx + vr * Math.cos(a), cy + vr * Math.sin(a));
         }
         ctx.closePath();
         ctx.fill();
@@ -204,67 +206,83 @@
         for (var i = 0; i <= n; i++) {
             var idx = i % n;
             var a = angleFor(idx);
-            var vr = r * values[idx];
-            var px = cx + vr * Math.cos(a);
-            var py = cy + vr * Math.sin(a);
-            if (i === 0) ctx.moveTo(px, py);
-            else ctx.lineTo(px, py);
+            var vr = r * values[idx] * p;
+            if (i === 0) ctx.moveTo(cx + vr * Math.cos(a), cy + vr * Math.sin(a));
+            else ctx.lineTo(cx + vr * Math.cos(a), cy + vr * Math.sin(a));
         }
         ctx.closePath();
         ctx.stroke();
+        ctx.globalAlpha = 1;
 
         // dots
         for (var i = 0; i < n; i++) {
             var a = angleFor(i);
-            var vr = r * values[i];
+            var vr = r * values[i] * p;
             var px = cx + vr * Math.cos(a);
             var py = cy + vr * Math.sin(a);
             ctx.beginPath();
             ctx.arc(px, py, 4, 0, Math.PI * 2);
             ctx.fillStyle = '#4A7CFF';
+            ctx.globalAlpha = p;
             ctx.fill();
             ctx.strokeStyle = '#fff';
             ctx.lineWidth = 1.5;
             ctx.stroke();
+            ctx.globalAlpha = 1;
         }
 
-        // labels
-        ctx.fillStyle = 'rgba(26,42,74,0.65)';
-        ctx.font = '12px "Noto Sans JP", sans-serif';
-        ctx.textAlign = 'center';
+        // labels with smart alignment to prevent clipping
+        ctx.fillStyle = 'rgba(26,42,74,0.75)';
+        ctx.font = '600 13px "Noto Sans JP", sans-serif';
         ctx.textBaseline = 'middle';
         for (var i = 0; i < n; i++) {
             var a = angleFor(i);
-            var lr2 = r + 22;
+            var lr2 = r + 30;
             var lx = cx + lr2 * Math.cos(a);
             var ly = cy + lr2 * Math.sin(a);
+
+            var cosA = Math.cos(a);
+            if (Math.abs(cosA) < 0.15) {
+                ctx.textAlign = 'center';
+            } else if (cosA > 0) {
+                ctx.textAlign = 'left';
+            } else {
+                ctx.textAlign = 'right';
+            }
+
+            ctx.globalAlpha = p;
             ctx.fillText(labels[i], lx, ly);
+            ctx.globalAlpha = 1;
         }
+    }
+
+    function animateRadarChart(canvas) {
+        var startTime = null;
+        var duration = 1200;
+        function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+        function frame(ts) {
+            if (!startTime) startTime = ts;
+            var progress = Math.min((ts - startTime) / duration, 1);
+            drawRadarChart(canvas, easeOutCubic(progress));
+            if (progress < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
     }
 
     /* ---------- Phone radar mini chart ---------- */
     var phoneRadar = document.getElementById('phone-radar');
-    if (phoneRadar) {
-        drawMiniRadar(phoneRadar);
-    }
+    if (phoneRadar) { drawMiniRadar(phoneRadar); }
 
     function drawMiniRadar(canvas) {
         var ctx = canvas.getContext('2d');
-        var w = canvas.width;
-        var h = canvas.height;
-        var cx = w / 2;
-        var cy = h / 2;
+        var w = canvas.width, h = canvas.height;
+        var cx = w / 2, cy = h / 2;
         var r = Math.min(w, h) / 2 - 20;
-
         var labels = ['問題解決力', '多面的思考', '読み取る力', '説得力', 'プレッシャー耐性'];
         var values = [0.82, 0.75, 0.88, 0.7, 0.85];
         var n = labels.length;
+        function angleFor(i) { return (Math.PI * 2 * i) / n - Math.PI / 2; }
 
-        function angleFor(i) {
-            return (Math.PI * 2 * i) / n - Math.PI / 2;
-        }
-
-        // grid
         ctx.strokeStyle = 'rgba(74,124,255,0.12)';
         ctx.lineWidth = 0.5;
         for (var level = 1; level <= 4; level++) {
@@ -272,16 +290,13 @@
             ctx.beginPath();
             for (var i = 0; i <= n; i++) {
                 var a = angleFor(i % n);
-                var px = cx + lr * Math.cos(a);
-                var py = cy + lr * Math.sin(a);
-                if (i === 0) ctx.moveTo(px, py);
-                else ctx.lineTo(px, py);
+                if (i === 0) ctx.moveTo(cx + lr * Math.cos(a), cy + lr * Math.sin(a));
+                else ctx.lineTo(cx + lr * Math.cos(a), cy + lr * Math.sin(a));
             }
             ctx.closePath();
             ctx.stroke();
         }
 
-        // filled area
         var grd = ctx.createLinearGradient(cx - r, cy - r, cx + r, cy + r);
         grd.addColorStop(0, 'rgba(46,196,182,0.25)');
         grd.addColorStop(1, 'rgba(74,124,255,0.2)');
@@ -309,46 +324,91 @@
         ctx.closePath();
         ctx.stroke();
 
-        // labels
         ctx.fillStyle = 'rgba(26,42,74,0.55)';
         ctx.font = '9px "Noto Sans JP", sans-serif';
         ctx.textAlign = 'center';
         for (var i = 0; i < n; i++) {
             var a = angleFor(i);
-            var lx = cx + (r + 16) * Math.cos(a);
-            var ly = cy + (r + 16) * Math.sin(a);
-            ctx.fillText(labels[i], lx, ly);
+            ctx.fillText(labels[i], cx + (r + 16) * Math.cos(a), cy + (r + 16) * Math.sin(a));
         }
     }
 
-    /* ---------- Animated evaluation bars ---------- */
-    var evalObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                var bars = entry.target.querySelectorAll('.eval-axis-fill');
-                bars.forEach(function (bar) {
-                    bar.style.width = bar.dataset.width;
-                });
-            }
-        });
-    }, { threshold: 0.3 });
+    /* ---------- Slide Animation System ---------- */
+    function triggerSlideAnimations(slide) {
+        if (!slide) return;
 
-    var evalSlide = document.getElementById('slide-evaluation');
-    if (evalSlide) {
-        evalObserver.observe(evalSlide);
-    }
-
-    // Also trigger when active
-    var origGoTo = goTo;
-    // Re-check eval bars on slide change
-    var evalInterval = setInterval(function () {
-        if (slides[currentIndex] && slides[currentIndex].id === 'slide-evaluation') {
-            var bars = slides[currentIndex].querySelectorAll('.eval-axis-fill');
-            bars.forEach(function (bar) {
-                bar.style.width = bar.dataset.width;
+        // Radar chart + eval bars
+        if (slide.id === 'slide-evaluation' && radarCanvas) {
+            var bars = slide.querySelectorAll('.eval-axis-fill');
+            bars.forEach(function (b) { b.style.width = '0'; });
+            setTimeout(function () { animateRadarChart(radarCanvas); }, 300);
+            bars.forEach(function (b, i) {
+                setTimeout(function () { b.style.width = b.dataset.width; }, 600 + i * 150);
             });
-            clearInterval(evalInterval);
         }
-    }, 500);
+
+        // Glass cards
+        slide.querySelectorAll('.glass-card').forEach(function (card, i) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px) scale(0.95)';
+            card.style.transition = 'none';
+            setTimeout(function () {
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+            }, 200 + i * 120);
+        });
+
+        // Deploy steps
+        slide.querySelectorAll('.deploy-step').forEach(function (step, i) {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(20px)';
+            step.style.transition = 'none';
+            setTimeout(function () {
+                step.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+                step.style.opacity = '1';
+                step.style.transform = 'translateY(0)';
+            }, 300 + i * 150);
+        });
+
+        // Step cards
+        slide.querySelectorAll('.step-card').forEach(function (card, i) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateX(-15px)';
+            card.style.transition = 'none';
+            setTimeout(function () {
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateX(0)';
+            }, 200 + i * 130);
+        });
+
+        // Bullet list items
+        slide.querySelectorAll('.bullet-list li').forEach(function (li, i) {
+            li.style.opacity = '0';
+            li.style.transform = 'translateX(-10px)';
+            li.style.transition = 'none';
+            setTimeout(function () {
+                li.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                li.style.opacity = '1';
+                li.style.transform = 'translateX(0)';
+            }, 400 + i * 120);
+        });
+    }
+
+    // Observe slide activation via class changes
+    slides.forEach(function (slide) {
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                if (m.attributeName === 'class' && slide.classList.contains('active')) {
+                    triggerSlideAnimations(slide);
+                }
+            });
+        }).observe(slide, { attributes: true, attributeFilter: ['class'] });
+    });
+
+    // Initial state
+    if (radarCanvas) { drawRadarChart(radarCanvas, 0); }
+    triggerSlideAnimations(slides[0]);
 
 })();
