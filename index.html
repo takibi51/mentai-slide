@@ -27,8 +27,9 @@
         <button class="slide-nav-dot" data-label="管理画面" aria-label="スライド6"></button>
         <button class="slide-nav-dot" data-label="候補者体験" aria-label="スライド7"></button>
         <button class="slide-nav-dot" data-label="評価軸" aria-label="スライド8"></button>
-        <button class="slide-nav-dot" data-label="導入" aria-label="スライド9"></button>
-        <button class="slide-nav-dot" data-label="会社概要" aria-label="スライド10"></button>
+        <button class="slide-nav-dot" data-label="活用イメージ" aria-label="スライド9"></button>
+        <button class="slide-nav-dot" data-label="導入" aria-label="スライド10"></button>
+        <button class="slide-nav-dot" data-label="会社概要" aria-label="スライド11"></button>
     </nav>
 
     <!-- ========== Slides Container ========== -->
@@ -36,17 +37,19 @@
 
         <!-- ===== Slide 1: Cover ===== -->
         <section class="slide slide--cover active" id="slide-cover">
-            <span class="slide-number">01 / 10</span>
+            <span class="slide-number">01 / 11</span>
             <div class="cover-content">
                 <div class="cover-badge anim-item">
                     <img src="assets/images/favicon.png" alt="MENTAI">
                     MENTAI for Business
                 </div>
                 <h1 class="cover-title anim-item">
-                    <span class="highlight">AI面接データ</span>による<br>
-                    次世代<br>
-                    スカウトプラットフォーム
+                    会うべき人が、<br>一目でわかる。
                 </h1>
+                <p class="cover-sub anim-item"
+                    style="font-size:clamp(16px,1.8vw,24px); color:var(--c-text-sub); margin-top:-8px; font-weight:500;">
+                    1次面接の工数を<span class="highlight">8割削減</span>するAIスカウト
+                </p>
             </div>
             <div class="cover-decoration anim-item">
                 <img src="assets/images/slide1-candidates.png" alt="MENTAI候補者リスト">
@@ -55,7 +58,7 @@
 
         <!-- ===== Slide 2: Mission ===== -->
         <section class="slide slide--mission" id="slide-mission">
-            <span class="slide-number">02 / 10</span>
+            <span class="slide-number">02 / 11</span>
             <div class="center-layout">
                 <span class="slide-label anim-item">Mission</span>
                 <h2 class="section-heading anim-item" style="font-size:clamp(28px,3.5vw,52px);">
@@ -70,38 +73,32 @@
             </div>
         </section>
 
-        <!-- ===== Slide 3: Challenges ===== -->
         <section class="slide slide--challenges" id="slide-challenges">
-            <span class="slide-number">03 / 10</span>
+            <span class="slide-number">03 / 11</span>
             <div class="center-layout">
                 <span class="slide-label anim-item">Challenges</span>
                 <h2 class="section-heading anim-item">採用現場では、<br>こんな課題が起きています</h2>
-                <p class="section-desc anim-item" style="margin-bottom:16px;">採用現場で起きている3つの課題を、AI面接で解決します</p>
-                <div class="card-grid anim-item">
-                    <div class="glass-card">
-                        <div class="card-icon card-icon--purple">⏱️</div>
-                        <h3 class="card-title">面接工数の負荷</h3>
-                        <p class="card-text">
-                            書類では判断できない候補者が多く「とりあえず会う」が常態化。母集団が拡大すると質より量の対応になりやすい。
-                        </p>
-                        <p class="card-text"
-                            style="font-size:12px; padding:8px 12px; background:rgba(74,124,255,0.06); border-radius:10px; color:var(--c-primary);">
-                            1次面接＝平均80分 × 月80件<br>→ 100時間以上をAI面接に代替可能
-                        </p>
+                <div class="challenges-row anim-item">
+                    <div class="challenges-hero">
+                        <img src="assets/images/confused-recruiter.png" alt="採用課題に悩む人事担当者" class="challenges-hero-img">
                     </div>
-                    <div class="glass-card">
-                        <div class="card-icon card-icon--teal">📊</div>
-                        <h3 class="card-title">学歴偏重の選考</h3>
-                        <p class="card-text">
-                            学歴・スキルは合っていても人物面がわからない。学歴フィルターに依存しすぎて画一的な判断になり、他社と差別化できない。
-                        </p>
-                    </div>
-                    <div class="glass-card">
-                        <div class="card-icon card-icon--pink">🎯</div>
-                        <h3 class="card-title">評価のばらつき</h3>
-                        <p class="card-text">
-                            評価基準が属人化しており、面接官の主観や経験値によって合否判断が大きく分かれている。客観的な定量指標を欠くため、選考結果が担当者との相性という「運」に左右される現状がある。
-                        </p>
+                    <div class="card-grid card-grid--compact">
+                        <div class="glass-card glass-card--challenge">
+                            <div class="card-icon card-icon--purple">⏱️</div>
+                            <h3 class="card-title">面接工数の負荷</h3>
+                            <p class="card-text">優秀層だと思って会ってみたら、コミュニケーションが全く取れなかった…という『無駄な1次面接』を<strong>ゼロに。</strong>
+                            </p>
+                        </div>
+                        <div class="glass-card glass-card--challenge">
+                            <div class="card-icon card-icon--teal">📊</div>
+                            <h3 class="card-title">学歴偏重の選考</h3>
+                            <p class="card-text">学歴フィルターを外したいが、外すと母集団が多すぎて処理できない…その<strong>矛盾をAI面接が解消。</strong></p>
+                        </div>
+                        <div class="glass-card glass-card--challenge">
+                            <div class="card-icon card-icon--pink">🎯</div>
+                            <h3 class="card-title">評価のばらつき</h3>
+                            <p class="card-text">同じ候補者でも面接官によって評価が割れる…<strong>定量スコアで評価基準を統一。</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,7 +106,7 @@
 
         <!-- ===== Slide 4: Solution ===== -->
         <section class="slide slide--solution" id="slide-solution">
-            <span class="slide-number">04 / 10</span>
+            <span class="slide-number">04 / 11</span>
             <div class="center-layout">
                 <span class="slide-label anim-item">Solution</span>
                 <h2 class="section-heading anim-item" style="font-size:clamp(24px,3.5vw,48px);">
@@ -149,7 +146,7 @@
 
         <!-- ===== Slide 5: 3 Steps ===== -->
         <section class="slide slide--steps" id="slide-steps">
-            <span class="slide-number">05 / 10</span>
+            <span class="slide-number">05 / 11</span>
             <div class="center-layout">
                 <span class="slide-label anim-item">How It Works</span>
                 <h2 class="section-heading anim-item">MENTAIの仕組み</h2>
@@ -187,7 +184,7 @@
 
         <!-- ===== Slide 6: Dashboard ===== -->
         <section class="slide slide--dashboard" id="slide-dashboard">
-            <span class="slide-number">06 / 10</span>
+            <span class="slide-number">06 / 11</span>
             <div class="split-layout">
                 <div class="split-visual anim-item">
                     <div class="visual-glow"></div>
@@ -211,7 +208,7 @@
 
         <!-- ===== Slide 7: Candidate Experience ===== -->
         <section class="slide slide--candidate" id="slide-candidate">
-            <span class="slide-number">07 / 10</span>
+            <span class="slide-number">07 / 11</span>
             <div class="split-layout">
                 <div class="split-visual anim-item">
                     <div class="visual-glow"></div>
@@ -224,9 +221,11 @@
                     <h2 class="section-heading anim-item">候補者は、AI面接で<br>自分を可視化</h2>
                     <p class="section-desc anim-item">対話型AIが深掘り質問。あなたの考えと人となりを引き出します</p>
                     <ul class="bullet-list anim-item">
-                        <li>🎙️ 対話型面接 — AIがあなたの回答に合わせて質問を展開</li>
-                        <li>🔍 深掘り質問 — 気づいていなかった強みが明らかに</li>
-                        <li>📊 リアルタイム分析 — 定量的データであなたの強みを可視化</li>
+                        <li>🎙 対話型面接 -- AIがあなたの回答に合わせて質問を展開</li>
+                        <li>🔍 深掘り質問 -- 気づいていなかった強みが明らかに</li>
+                        <li>📊 リアルタイム分析 -- 定量的データであなたの強みを可視化</li>
+                        <li>🎮 ゲーム感覚 -- 候補者が楽しみながら受検できるUI設計</li>
+                        <li>📈 高い受検率 -- 自己分析に活用できるため受検完了率が向上</li>
                     </ul>
                 </div>
             </div>
@@ -234,16 +233,22 @@
 
         <!-- ===== Slide 8: Evaluation Axes ===== -->
         <section class="slide slide--evaluation" id="slide-evaluation">
-            <span class="slide-number">08 / 10</span>
+            <span class="slide-number">08 / 11</span>
             <div class="split-layout split-layout--reverse">
-                <div class="split-visual split-visual--40 anim-item">
+                <div class="split-visual split-visual--40 anim-item" style="padding-top:20px;">
                     <div class="radar-container">
                         <canvas id="radar-chart" width="300" height="300"></canvas>
                     </div>
                 </div>
                 <div class="split-text">
                     <span class="slide-label anim-item">Evaluation</span>
-                    <h2 class="section-heading anim-item">何を測っているか</h2>
+                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                        <h2 class="section-heading anim-item" style="margin:0;">何を測っているか</h2>
+                        <div class="trust-badge trust-badge--inline anim-item">
+                            <span class="trust-badge-icon">🏅</span>
+                            <span>人事のプロ（元DeNA / 元リクルート）の評価基準をアルゴリズム化</span>
+                        </div>
+                    </div>
                     <p class="section-desc anim-item" style="margin-bottom:12px;">
                         AI面接評価項目は一次面接にて確認される重要指標に集約して実施
                     </p>
@@ -325,9 +330,58 @@
             </div>
         </section>
 
-        <!-- ===== Slide 9: Deployment ===== -->
+        <section class="slide slide--usecase" id="slide-usecase">
+            <span class="slide-number">09 / 11</span>
+            <div class="usecase-layout usecase-layout--compact">
+                <!-- Before -->
+                <div class="usecase-half usecase-before anim-item">
+                    <div class="usecase-stat-badge usecase-stat-badge--pain">
+                        <span class="usecase-badge-num">※ 130h+</span>
+                        <span class="usecase-badge-label">毎月の面接工数</span>
+                    </div>
+                    <div class="usecase-label usecase-label--before">Before</div>
+                    <div class="usecase-illust usecase-illust--sm">
+                        <img src="assets/images/stressed-recruiter.png" alt="従来の採用フローで悩む担当者">
+                    </div>
+                    <h3 class="usecase-title">従来の採用フロー</h3>
+                    <div class="usecase-flow-vertical usecase-flow--tight">
+                        <div class="usecase-fstep">📄 書類選考</div>
+                        <div class="usecase-farrow">↓</div>
+                        <div class="usecase-fstep usecase-fstep--pain">👥 1次面接（100人）<br><small>平埇80分 × 100人 =
+                                <strong>130時間以上</strong></small></div>
+                        <div class="usecase-farrow">↓</div>
+                        <div class="usecase-fstep">🏢 最終面接</div>
+                    </div>
+                </div>
+                <!-- After -->
+                <div class="usecase-half usecase-after anim-item">
+                    <div class="usecase-stat-badge usecase-stat-badge--good">
+                        <span class="usecase-badge-num">▲ 80%削減</span>
+                        <span class="usecase-badge-label">面接工数を大幅にカット</span>
+                    </div>
+                    <div class="usecase-label usecase-label--after">After</div>
+                    <div class="usecase-illust usecase-illust--sm">
+                        <img src="assets/images/happy-recruiter.png" alt="MENTAI導入後の採用フロー">
+                    </div>
+                    <h3 class="usecase-title">MENTAI導入後</h3>
+                    <div class="usecase-flow-vertical usecase-flow--tight">
+                        <div class="usecase-fstep">📄 書類選考</div>
+                        <div class="usecase-farrow">↓</div>
+                        <div class="usecase-fstep usecase-fstep--ai">🤖
+                            AI面接（自動）<br><small>100人を<strong>AIが自動評価</strong></small></div>
+                        <div class="usecase-farrow">↓</div>
+                        <div class="usecase-fstep usecase-fstep--good">✅ 1次面接（厳選20人）<br><small>工数
+                                <strong>80%削減</strong></small></div>
+                        <div class="usecase-farrow">↓</div>
+                        <div class="usecase-fstep">🏢 最終面接</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Slide 10: Deployment ===== -->
         <section class="slide slide--deploy" id="slide-deploy">
-            <span class="slide-number">09 / 10</span>
+            <span class="slide-number">10 / 11</span>
             <div class="center-layout">
                 <span class="slide-label anim-item">Deployment</span>
                 <h2 class="section-heading anim-item" style="font-size:clamp(24px,3.5vw,48px);">
@@ -361,7 +415,7 @@
                     </div>
                 </div>
                 <div class="anim-item"
-                    style="margin-top:32px; display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
+                    style="margin-top:20px; display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
                     <div class="glass-card" style="padding:20px 28px; flex:none;">
                         <div style="font-size:13px; color:var(--c-text-muted);">面接時間</div>
                         <div style="font-size:20px; font-weight:700; color:var(--c-accent);">10〜30分</div>
@@ -382,9 +436,9 @@
             </div>
         </section>
 
-        <!-- ===== Slide 10: Company & CTA ===== -->
+        <!-- ===== Slide 11: Company & CTA ===== -->
         <section class="slide slide--company" id="slide-company">
-            <span class="slide-number">10 / 10</span>
+            <span class="slide-number">11 / 11</span>
             <div class="company-grid anim-item">
                 <div class="company-info">
                     <div class="company-logo">
@@ -398,7 +452,8 @@
                             <div
                                 style="font-size:11px; font-weight:700; color:var(--c-primary); letter-spacing:2px; margin-bottom:4px;">
                                 MISSION</div>
-                            <div style="font-size:13px; color:var(--c-text-sub); line-height:1.6;">自分らしさが、正当に評価される世界へ。
+                            <div style="font-size:13px; color:var(--c-text-sub); line-height:1.6;">
+                                自分らしさが、正当に評価される世界へ。
                             </div>
                         </div>
                         <div
@@ -418,7 +473,8 @@
                         <dd>MENTAI — AI面接×スカウトプラットフォーム</dd>
                         <dt>サイト</dt>
                         <dd><a href="https://lp.v2.mentailab.com/"
-                                style="color:var(--c-primary-light); text-decoration:none;">lp.v2.mentailab.com</a></dd>
+                                style="color:var(--c-primary-light); text-decoration:none;">lp.v2.mentailab.com</a>
+                        </dd>
                     </dl>
                     <!-- Team -->
                     <div class="team-cards">
@@ -442,8 +498,9 @@
                         しませんか？
                     </div>
                     <a href="https://lp.v2.mentailab.com/#contact" class="cta-button">
-                        📩 お問い合わせ / デモ相談
+                        📩 無料で評価設計案を受け取る
                     </a>
+                    <p class="cta-sub-text">貴社の採用ターゲットに合わせた評価設計案を無料作成します</p>
                     <a href="https://lp.v2.mentailab.com/about.html" class="cta-button-secondary">
                         企業情報を見る →
                     </a>
@@ -456,7 +513,7 @@
     <!-- ========== Arrow Navigation ========== -->
     <div class="slide-arrows">
         <button class="slide-arrow" id="arrow-prev" disabled aria-label="前のスライド">←</button>
-        <span class="slide-counter" id="slide-counter">01 / 10</span>
+        <span class="slide-counter" id="slide-counter">01 / 11</span>
         <button class="slide-arrow" id="arrow-next" aria-label="次のスライド">→</button>
     </div>
 

@@ -1111,6 +1111,449 @@ body {
     transition: width 1s ease;
 }
 
+/* ---------- Challenges Hero (3D Illustration) ---------- */
+.challenges-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.challenges-hero {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.challenges-hero-img {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.card-grid--compact {
+    gap: 12px;
+    flex: 1;
+}
+
+.glass-card--challenge {
+    padding: 16px 18px !important;
+    text-align: left;
+}
+
+.glass-card--challenge .card-title {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.glass-card--challenge .card-text {
+    font-size: 13px !important;
+    line-height: 1.6;
+}
+
+.glass-card--mini {
+    padding: 20px 18px !important;
+    text-align: center;
+}
+
+.glass-card--mini .card-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.glass-card--mini .card-text {
+    font-size: 13px !important;
+    line-height: 1.7;
+}
+
+/* ---------- Trust Badge (inline beside heading) ---------- */
+.trust-badge--inline {
+    display: inline-flex;
+    font-size: 12px;
+    padding: 6px 14px;
+}
+
+/* ---------- Trust Badge (top-right) ---------- */
+.trust-badge--topright {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    z-index: 5;
+}
+
+/* ---------- Use Case Slide (Before/After) ---------- */
+.usecase-layout {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+    align-items: stretch;
+    height: 100%;
+}
+
+.usecase-layout--compact {
+    padding: 24px 32px 40px;
+    gap: 24px;
+}
+
+.usecase-half {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 24px;
+    border-radius: 24px;
+    text-align: center;
+    gap: 12px;
+    transition: transform 0.3s ease;
+}
+
+.usecase-before {
+    background: linear-gradient(180deg, rgba(255, 143, 163, 0.06) 0%, rgba(255, 143, 163, 0.02) 100%);
+    border: 1px solid rgba(255, 143, 163, 0.15);
+}
+
+.usecase-after {
+    background: linear-gradient(180deg, rgba(46, 196, 182, 0.06) 0%, rgba(46, 196, 182, 0.02) 100%);
+    border: 1px solid rgba(46, 196, 182, 0.2);
+}
+
+.usecase-label {
+    display: inline-block;
+    font-family: var(--font-en);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 20px;
+}
+
+.usecase-label--before {
+    color: #c0475e;
+    background: rgba(255, 143, 163, 0.12);
+}
+
+.usecase-label--after {
+    color: #1a9e91;
+    background: rgba(46, 196, 182, 0.12);
+}
+
+.usecase-illust {
+    width: 160px;
+    height: 160px;
+    margin: 4px 0;
+}
+
+.usecase-illust img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.06));
+}
+
+.usecase-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--c-text);
+    margin: 0;
+}
+
+.usecase-flow-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    max-width: 280px;
+}
+
+.usecase-fstep {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--c-text-sub);
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(100, 140, 200, 0.1);
+    line-height: 1.5;
+}
+
+.usecase-fstep small {
+    display: block;
+    font-size: 11px;
+    color: var(--c-text-muted);
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.usecase-fstep--pain {
+    background: rgba(255, 143, 163, 0.12);
+    border-color: rgba(255, 143, 163, 0.25);
+    color: #c0475e;
+    font-weight: 600;
+}
+
+.usecase-fstep--ai {
+    background: rgba(74, 124, 255, 0.08);
+    border-color: rgba(74, 124, 255, 0.2);
+    color: var(--c-primary);
+}
+
+.usecase-fstep--good {
+    background: rgba(46, 196, 182, 0.12);
+    border-color: rgba(46, 196, 182, 0.25);
+    color: #1a9e91;
+    font-weight: 700;
+}
+
+.usecase-farrow {
+    color: var(--c-text-muted);
+    font-size: 14px;
+    opacity: 0.4;
+    text-align: center;
+}
+
+.usecase-pain-stat,
+.usecase-good-stat {
+    margin-top: auto;
+    padding: 12px 16px;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.usecase-pain-stat {
+    background: rgba(255, 143, 163, 0.08);
+}
+
+.usecase-good-stat {
+    background: rgba(46, 196, 182, 0.08);
+}
+
+.usecase-pain-num {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 28px;
+    font-weight: 800;
+    color: #c0475e;
+    line-height: 1;
+}
+
+.usecase-good-num {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a9e91;
+    line-height: 1;
+}
+
+.usecase-pain-label,
+.usecase-good-label {
+    display: block;
+    font-size: 12px;
+    color: var(--c-text-muted);
+    margin-top: 4px;
+}
+
+/* ---------- Card Voice (Current Pain) ---------- */
+.card-voice {
+    font-size: 13px !important;
+    font-style: italic;
+    padding: 10px 14px;
+    background: rgba(255, 143, 163, 0.06);
+    border-left: 3px solid #e06680;
+    border-radius: 0 10px 10px 0;
+    color: var(--c-text-sub);
+    line-height: 1.7;
+}
+
+.card-voice strong {
+    color: var(--c-text);
+    font-style: normal;
+}
+
+/* ---------- Trust Badge ---------- */
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(74, 124, 255, 0.08) 0%, rgba(46, 196, 182, 0.06) 100%);
+    border: 1px solid rgba(74, 124, 255, 0.15);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c-text);
+}
+
+.trust-badge-icon {
+    font-size: 20px;
+}
+
+/* ---------- Candidate Stats ---------- */
+.candidate-stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.cand-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(100, 140, 200, 0.12);
+    border-radius: 16px;
+}
+
+.cand-stat-num {
+    font-family: var(--font-en);
+    font-size: 36px;
+    font-weight: 800;
+    background: var(--c-gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.cand-stat-unit {
+    font-family: var(--font-en);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--c-text-sub);
+}
+
+.cand-stat-label {
+    font-size: 12px;
+    color: var(--c-text-muted);
+    margin-top: 4px;
+}
+
+/* ---------- Flow Compare (Before/After) ---------- */
+.flow-compare {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+.flow-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    transition: transform 0.3s ease;
+}
+
+.flow-before {
+    background: rgba(255, 143, 163, 0.06);
+    border: 1px solid rgba(255, 143, 163, 0.15);
+}
+
+.flow-after {
+    background: rgba(46, 196, 182, 0.06);
+    border: 1px solid rgba(46, 196, 182, 0.2);
+}
+
+.flow-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--c-text-muted);
+    min-width: 100px;
+    flex-shrink: 0;
+    letter-spacing: 1px;
+}
+
+.flow-label--highlight {
+    color: var(--c-accent);
+    background: rgba(46, 196, 182, 0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.flow-step {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--c-text-sub);
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: 1px solid rgba(100, 140, 200, 0.1);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.flow-step small {
+    display: block;
+    font-size: 11px;
+    color: var(--c-text-muted);
+    font-weight: 400;
+}
+
+.flow-step--pain {
+    background: rgba(255, 143, 163, 0.1);
+    border-color: rgba(255, 143, 163, 0.25);
+    color: #c0475e;
+}
+
+.flow-step--ai {
+    background: rgba(74, 124, 255, 0.08);
+    border-color: rgba(74, 124, 255, 0.2);
+    color: var(--c-primary);
+}
+
+.flow-step--good {
+    background: rgba(46, 196, 182, 0.1);
+    border-color: rgba(46, 196, 182, 0.25);
+    color: #1a9e91;
+    font-weight: 700;
+}
+
+.flow-arrow-sm {
+    color: var(--c-text-muted);
+    font-size: 14px;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+/* ---------- CTA Sub Text ---------- */
+.cta-sub-text {
+    font-size: 14px;
+    color: var(--c-text-muted);
+    margin-top: -8px;
+    line-height: 1.5;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
     .slide {
@@ -1163,6 +1606,37 @@ body {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+
+    .flow-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .flow-label {
+        min-width: auto;
+    }
+
+    .candidate-stats {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .usecase-layout {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .usecase-illust {
+        width: 120px;
+        height: 120px;
+    }
+
+    .trust-badge--topright {
+        position: static;
+        margin-bottom: 8px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1196,5 +1670,15 @@ body {
 
     .team-card {
         width: 100%;
+    }
+
+    .trust-badge {
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    .flow-step {
+        font-size: 11px;
+        padding: 6px 10px;
     }
 }
